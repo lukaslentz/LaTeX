@@ -36,5 +36,5 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
-*.tcp
-*.tps
+#*.tcp
+#*.tps
