@@ -1,6 +1,9 @@
 %
 \documentclass[12pt,a4paper]{scrartcl}
 %
+\usepackage{geometry}
+\geometry{top=20mm, left=25mm, bottom=20mm, right=20mm, includeheadfoot}
+%
 \begin{document}
 %
 %******************************************************************
@@ -18,6 +21,7 @@ Wenn Sie \LaTeX\, erstmal ausprobieren möchten, brauchen Sie zunächst keine In
 Falls Sie dann richtig einsteigen wollen, müssen Sie zwei Dinge auf Ihrem Rechner installieren.
 %
 \subsection{TeX-Distribution}
+%
 Damit Sie mit \LaTeX\, arbeiten können, brauchen Sie eine TeX-Distribution.
 Diese beinhaltet einen Compiler und zahlreiche Bibliotheken, die je nach Bedarf eingebunden werden können.
 Üblicherweise werden je nach Betriebssystem folgende Distributionen verwendet:
@@ -28,6 +32,7 @@ Diese beinhaltet einen Compiler und zahlreiche Bibliotheken, die je nach Bedarf 
 \end{itemize}
 %
 \subsection{Editor}
+%
 Zusätzlich zu der Installation der Distribution empfielt sich die Installation eines Editors, welcher das Arbeiten mit \LaTeX\, komfortabler gestaltet. 
 Hier fällt die Entscheidung schon nicht mehr so leicht, da zahlreiche Optionen zur Verfügung stehen und je nach Geschmack die eine oder die andere als besser empfunden wird.
 Das Gute ist, dass keiner der prominenten Editoren (Internet-Suche) wirklich schlecht ist und immer die Möglichkeit besteht zu wechseln.
@@ -38,15 +43,52 @@ Ich selbst benutze momentan Texmaker (https://www.xm1math.net/texmaker/), habe a
 %******************************************************************
 %
 Sobald Sie die Distribution und Editor installiert haben, können Sie ihre ersten Dokumente erstellen. 
+%
+\subsection{Struktur der \LaTeX-Datei}
+%
+Die \LaTeX-Dokument-Datei besteht aus zwei Teilen. 
+Der erste Teil ist die sogenannte Präambel, in der die grundlegenden Einstellungen des Dokuments vorgenommen, benötigte Pakete geladen und eigene Befehle definiert werden.
+Die Präambel startet mit der Festlegung der Dokumnetklasse und endet an der Stelle, an der der Dokumentkörper beginnt. 
+%
+\subsection{Dokumentklasse}
+%
 Ein Dokument startet immer mit der Angabe, was für eine Art von Dokument erstellt werden soll. 
-Die Auswahl erfolgt über den Befehl
+Die Auswahl erfolgt über den Befehl \texttt{\textbackslash documentclass[12pt,a4paper]\{scrartcl\}}, der als nächstes genauer erklärt werden soll.
+Befehle werden in \LaTeX\, durch einen Backslash ("\textbackslash") gekennzeichnet.
+Viele Befehle benötigen zudem die Übergabe von Optionen, wobei dabei zwischen notwendigen und optionalen Optionen unterschieden wird. 
+Die Übergabe von notwendigen Optionen erfolgt immer in geschweiften Klammern (\texttt{\{scrartl\}}) und die Übergabe von optionalen Optionen in eckigen Klammern (\texttt{[12pt,a4paper]}).
+Im voriegenden Fall wird mit der Option \texttt{scrartcl} festgelegt, dass die KOMA-Skript Variante der article Klasse verwendet werden soll. 
+Die Dokumentklassen aus KOMA-Skript sind 
 %
-\begin{verbatim}
-\documentclass[12pt,a4paper]{scrartcl}
-\end{verbatim}
+\begin{itemize}
+\item \texttt{scrartcl} für kleine Dokumente wie Labor- und Projektberichte,
+\item \texttt{scrreprt} für mittelgroße Dokumente wie Bachelor und Masterarbeiten,
+\item \texttt{scrbook} für große Dokumente wie Dissertationen und Bücher,
+\item \texttt{scrlttr2} zum Verfassen von Briefen.
+\end{itemize}
 %
-der nun genauer erklärt werden soll.
+Bei den KOMA-Skript Dokumentklassen handelt es sich um Anpassungen von Dokumentklassen, die speziell auf ein im europäischen Raum verwendetes Layout zugeschnitten sind, und deswegen von mir bevorzugt verwendet werden. Weitere Informationen zu KOMA-Skript und inklusive einer umfangreichen Bedienungsanleitung finden sich unter https://komascript.de/ .
+\\
+Außer den KOMA-Skript Dokumentklassen existieren zahlreiche weitere Dokumentklassen, wie z.B.
+\texttt{article, report, book, letter, recipe} und viele mehr, die alle für einen bestimmten Zweck entwickelt wurden.
+\\
+Mit den optionalen Optionen wird das Layout des Dokuments weiter spezifiziert.
+Im vorliegenden Fall wird die Seitengröße auf A4 eingestellt und eine Schriftgröße von 12pt gewählt.
 %
+\subsection{Packete laden}
+%
+Eine gewisse Anzahl von Funktionen ist vo Beginn an vorhanden. 
+Um weitere Funktionen nutzen zu können, müssen entsprechende Pakete geladen werden.
+In der \LaTeX-Datei zu diesem Dokumnt wird mit dem Befehl \texttt{\textbackslash usepackage\{geometry\}} das Geomtry-Packet geladen, welches Funktionen zur Einstellung der Seiten-Geometrie bereitstellt. 
+Sobald das Packet geladen ist, können z.B. mit dem Befehl \texttt{\textbackslash geometry\{top=20mm, left=25mm, bottom=20mm, right=20mm, includeheadfoot\}} die Seitenränder eingestellt werden.
+%
+\subsection{Dokumentkörper}
+%
+Nachdem alle die Dokumentklasse festgelegt und alle benötigten Packete geladen worden, kann endlich Inhalt produziert werden.
+Dies geschieht innerhalb des Dokumentkörpers, dessen Start und Ende durch die Befehle \texttt{\textbackslash begin\{document\}} und \texttt{\textbackslash end\{document\}} gekenn\-zeichnet werden.
+\begin{flushright}
+
+\end{flushright}
 %
 \end{document}
 %
