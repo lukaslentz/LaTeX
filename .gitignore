@@ -10,7 +10,7 @@
 *.fot
 *.cb
 *.cb2
-.*.lb
+*.lb
 
 ## Intermediate documents:
 *.dvi
@@ -36,3 +36,5 @@
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+*.tcp
+*.tps
