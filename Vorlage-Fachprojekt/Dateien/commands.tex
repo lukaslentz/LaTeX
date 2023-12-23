@@ -1,0 +1,23 @@
+%
+\RedeclareSectionCommand[beforeskip=.5\baselineskip,afterskip=.5\baselineskip]{section}%Abstand vor und nach \section ändern
+%
+%
+\newtcolorbox[]{simplebox}[1]{
+	colframe=ucbblue,
+	title=#1,
+  breakable,
+	pad at break=1mm
+} 
+%
+\makeatletter
+\fancyhf{} 
+\fancyfoot[L]{\textsl{\small{\@title}}}
+\fancyfoot[C]{}
+\fancyfoot[R]{\textsl{\small{Seite \thepage  ~von \pageref{LastPage}}}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.2pt}
+\makeatother
+%
+\renewcommand{\refname}{Literaturverzeichnis}
+
+

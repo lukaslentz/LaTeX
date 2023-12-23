@@ -1,0 +1,42 @@
+%
+\usepackage[ngerman]{babel} % Deutsche Bezeichnungen bei Inhaltsangabe etc
+\usepackage[T1]{fontenc}    % andere Schriftsatzkodierung für richtige Silbentrennung bei Umlauten
+%
+\usepackage[]{geometry}%Seitengeometrie
+\geometry{ 
+					 top         = 20 mm,     % Rand unten
+					 bottom      = 20 mm,     % Rand unten
+					 left        = 20 mm,     % Rand links
+					 right       = 20 mm,     % Rand rechts
+           footskip    = 10 mm,     % Abstand Unterkante Text bis Unterkante Fußzeile
+           headsep     =  0 mm      % Abstand Unterkante Kopfzeile bis Oberkante Text
+					}
+%
+\setlength\parindent{0pt}
+%
+\usepackage[onehalfspacing]{setspace}%Zeilenabstand
+%
+\usepackage{graphicx} % zum Einbinden von Graphiken
+%
+\usepackage{amsmath,amsthm,amssymb} % Mathematik Umgebung 
+\usepackage{icomma} % Intelligentes Komma, das den richtigen Abstand zwischen Dezimalzahlen als auch in Formeln wählt.
+%
+\usepackage[locale = DE,space-before-unit=true,per-mode = symbol]{siunitx} % Bessere Einheiten
+%%
+\usepackage{xcolor}
+\definecolor{ucbblue}{RGB}{6,13,141}
+\definecolor{ucbgreen}{RGB}{67,176,42}
+%
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=ucbblue,urlcolor=ucbblue,citecolor=red]{hyperref} % Verlinkungen
+%
+\usepackage[]{natbib} % Zitieren und Literraturverzeichnis
+%
+\usepackage[most]{tcolorbox} % Erstellen farbiger Boxen 
+%
+\usepackage{fancyhdr} % Fuß und Kopfzeilen anpassen
+%
+\usepackage{lastpage} % Nummer der Seiten
+%
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric, arrows}
