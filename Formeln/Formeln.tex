@@ -1,0 +1,113 @@
+%
+\documentclass[a4paper,12pt]{scrartcl}
+%
+\usepackage[ngerman]{babel}%Als Sprache wird deutch ausgewählt
+\usepackage[latin1]{inputenc}% westliche 256-Bit-Codierung für Schriften, ermöglicht die Verwendung von Umlauten
+\usepackage[T1]{fontenc}%Darstellung von Umlauten als ein Zeichen
+\usepackage{lmodern}%Verwendung der latin modern schriftfamilie
+\usepackage{geometry}%Möglichkeit Geomertry der Seite einzustelleb
+\geometry{top=20mm, left=25mm, bottom=20mm, right=20mm, includeheadfoot}
+\usepackage{amsmath}%Zusätzliche Befehle zur Darstrellung von Formeln
+%
+\begin{document}
+%
+%
+%******************************************************************
+\section{Formeln in \LaTeX}
+%******************************************************************
+%
+\subsection{Zusätzliche Packete}
+%
+Auch ohne zusätliche Packete können Formeln verwendet werden. Durch das Einbinden von \texttt{amsmath} erweitern sich die Möglichkeiten allerdings sehr, weswegen dieses Packet fast immer geladen wird.
+%
+\subsection{Formeln im Text}
+%
+Sollen innerhalb des Textes kurze Formeln dargetellt werden, kann dies erreicht werden, indem  eine Mathematikumgebung erzeugt wird, welche nicht abgerückt ist. 
+Beginn und Ende einer solchen Umgebung werden durch ein Dollarzeichen \texttt{\$} gekennzeichnet. 
+Das Ergebnis sieht dann z.B. so  $\cos(45)=\frac{1}{2}\sqrt{2}$ aus.
+%
+\subsection{Abgerückte Formeln}
+%
+Um abgerückte Formeln zu erstellen stehen mehrere Umgebungen zur Verfügung, deren Beginn und Ende durch die Schlüsselwörter \texttt{\textbackslash begin\{...\}} und \texttt{\textbackslash end\{...\}} gekennzeichnet werden.
+Die wohl am häufigsten verwendete Umgebung ist die \texttt{equation}-Umgebung.
+Die Eingabe von
+%
+\\
+\\
+\texttt{\textbackslash begin\{equation\}
+\\\textbackslash cos(45)=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{2\}
+\\\textbackslash label\{formeleins\}
+\\\textbackslash end\{equation\}}
+%
+\\
+\\
+%
+liefert das Ergebnis 
+%
+\begin{equation}
+\cos(45)=\frac{1}{2}\sqrt{2}
+\label{formeleins}
+\end{equation}
+%
+wobei mit \texttt{\textbackslash label\{formeleins\}} der Formel ein Name gegeben wird, der verwendet werden kann, um diese Formel durch den Befehl \texttt{\textbackslash eqref\{formeleins\}} zu Referenzieren:
+In Formel \eqref{formeleins} wird ein einfacher trigonometrischer Zusammenhang dargestellt.
+\\
+Sollen mehrere zusammenhängende Formeln dargestellt werden, kann dies durch
+%
+\\
+\\
+\texttt{\textbackslash begin\{align\}
+\\\textbackslash cos(0)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{4\}\textbackslash label\{eq:cos0\}\textbackslash\textbackslash
+\\\textbackslash cos(30)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{3\}\textbackslash label\{eq:cos30\}\textbackslash\textbackslash
+\\\textbackslash cos(45)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{2\}\textbackslash label\{eq:cos45\}\textbackslash\textbackslash
+\\\textbackslash cos(60)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{1\}\textbackslash label\{eq:cos60\}\textbackslash\textbackslash
+\\\textbackslash cos(60)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{0\}\textbackslash label\{eq:cos90\}
+\\\textbackslash end\{align\}}
+%
+\\
+\\
+oder
+\\
+\\
+\texttt{\textbackslash begin\{subequations\}
+\\\texttt{\textbackslash begin\{align\}
+\\\textbackslash cos(0)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{4\}\textbackslash label\{seq:cos0\}\textbackslash\textbackslash
+\\\textbackslash cos(30)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{3\}\textbackslash label\{seq:cos30\}\textbackslash\textbackslash
+\\\textbackslash cos(45)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{2\}\textbackslash label\{seq:cos45\}\textbackslash\textbackslash
+\\\textbackslash cos(60)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{1\}\textbackslash label\{seq:cos60\}\textbackslash\textbackslash
+\\\textbackslash cos(60)\&=\textbackslash frac\{1\}\{2\}\textbackslash sqrt\{0\}\textbackslash label\{seq:cos90\}
+\\\textbackslash end\{align\}}
+\\\textbackslash label\{seq:cos\}
+\\\textbackslash end\{subequations\}}
+%
+\\
+\\
+erreicht werden.
+Die Ausgabe von Variante 1 ist
+%
+\begin{align}
+\cos(0)&=\frac{1}{2}\sqrt{4}\label{eq:cos0}\\
+\cos(30)&=\frac{1}{2}\sqrt{3}\label{eq:cos30}\\
+\cos(45)&=\frac{1}{2}\sqrt{2}\label{eq:cos45}\\
+\cos(60)&=\frac{1}{2}\sqrt{1}\label{eq:cos60}\\
+\cos(90)&=\frac{1}{2}\sqrt{0}\label{eq:cos90}
+\end{align}
+%
+und von Variante 2
+%
+\begin{subequations}
+\begin{align}
+\cos(0)&=\frac{1}{2}\sqrt{4}\label{seq:cos0}\\
+\cos(30)&=\frac{1}{2}\sqrt{3}\label{seq:cos30}\\
+\cos(45)&=\frac{1}{2}\sqrt{2}\label{seq:cos45}\\
+\cos(60)&=\frac{1}{2}\sqrt{1}\label{seq:cos60}\\
+\cos(90)&=\frac{1}{2}\sqrt{0}\label{seq:cos90}
+\end{align}
+\label{seq:cos}
+\end{subequations}
+%
+der Unterschied besteht also darin, wie die Gleichungen nummeriert werden, was sich auch auf die Referenzierung auswirkt: Gleichungen \eqref{eq:cos30} und \eqref{seq:cos30} treffen die selbe Aussage.  
+Mit dem Zeichen \texttt{\&} wird festgelegt, welche Stellen der Gleichung zueinander ausgerichtet werden sollen. 
+%
+\end{document}
+%

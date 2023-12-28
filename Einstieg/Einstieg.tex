@@ -1,7 +1,11 @@
 %
 \documentclass[12pt,a4paper]{scrartcl}
 %
-\usepackage{geometry}
+\usepackage[ngerman]{babel}%Als Sprache wird deutch ausgewählt
+\usepackage[latin1]{inputenc}% westliche 256-Bit-Codierung für Schriften, ermöglicht die Verwendung von Umlauten
+\usepackage[T1]{fontenc}%Darstellung von Umlauten als ein Zeichen
+\usepackage{lmodern}%Verwendung der latin modern schriftfamilie
+\usepackage{geometry}%Möglichkeit Geomertry der Seite einzustelleb
 \geometry{top=20mm, left=25mm, bottom=20mm, right=20mm, includeheadfoot}
 %
 \begin{document}
@@ -10,21 +14,21 @@
 \section{Einleitung}
 %******************************************************************
 %
-Wenn Sie bislang noch nicht mit \LaTeX\, gearbeitet haben, finden Sie hier die wichtigsten Informationen, die Sie zum Einstieg benÃ¶tigen.
-Die weiterfÃ¼hrenden Themen werden dann in gesonderten Dokumenten behandelt. 
+Wenn Sie bislang noch nicht mit \LaTeX\, gearbeitet haben, finden Sie hier die wichtigsten Informationen, die Sie zum Einstieg benötigen.
+Die weiterführenden Themen werden dann in gesonderten Dokumenten behandelt. 
 %
 %******************************************************************
 \section{Voraussetzungen}
 %******************************************************************
 %
-Wenn Sie \LaTeX\, erstmal ausprobieren mÃ¶chten, brauchen Sie zunÃ¤chst keine Installationen vorzunehmen und kÃ¶nnen einfach mit overleaf (https://de.overleaf.com/) erste Versuche unternehmen.
-Falls Sie dann richtig einsteigen wollen, mÃ¼ssen Sie zwei Dinge auf Ihrem Rechner installieren.
+Wenn Sie \LaTeX\, erstmal ausprobieren möchten, brauchen Sie zunächst keine Installationen vorzunehmen und können einfach mit overleaf (https://de.overleaf.com/) erste Versuche unternehmen.
+Falls Sie dann richtig einsteigen wollen, müssen Sie zwei Dinge auf Ihrem Rechner installieren.
 %
 \subsection{TeX-Distribution}
 %
-Damit Sie mit \LaTeX\, arbeiten kÃ¶nnen, brauchen Sie eine TeX-Distribution.
-Diese beinhaltet einen Compiler und zahlreiche Bibliotheken, die je nach Bedarf eingebunden werden kÃ¶nnen.
-Ãœblicherweise werden je nach Betriebssystem folgende Distributionen verwendet:
+Damit Sie mit \LaTeX\, arbeiten können, brauchen Sie eine TeX-Distribution.
+Diese beinhaltet einen Compiler und zahlreiche Bibliotheken, die je nach Bedarf eingebunden werden können.
+Üblicherweise werden je nach Betriebssystem folgende Distributionen verwendet:
 %
 \begin{itemize}
 \item Windows: MiKTeX (https://miktex.org/)
@@ -33,59 +37,63 @@ Diese beinhaltet einen Compiler und zahlreiche Bibliotheken, die je nach Bedarf 
 %
 \subsection{Editor}
 %
-ZusÃ¤tzlich zu der Installation der Distribution empfielt sich die Installation eines Editors, welcher das Arbeiten mit \LaTeX\, komfortabler gestaltet. 
-Hier fÃ¤llt die Entscheidung schon nicht mehr so leicht, da zahlreiche Optionen zur VerfÃ¼gung stehen und je nach Geschmack die eine oder die andere als besser empfunden wird.
-Das Gute ist, dass keiner der prominenten Editoren (Internet-Suche) wirklich schlecht ist und immer die MÃ¶glichkeit besteht zu wechseln.
+Zusätzlich zu der Installation der Distribution empfielt sich die Installation eines Editors, welcher das Arbeiten mit \LaTeX\, komfortabler gestaltet. 
+Hier fällt die Entscheidung schon nicht mehr so leicht, da zahlreiche Optionen zur Verfügung stehen und je nach Geschmack die eine oder die andere als besser empfunden wird.
+Das Gute ist, dass keiner der prominenten Editoren (Internet-Suche) wirklich schlecht ist und immer die Möglichkeit besteht zu wechseln.
 Ich selbst benutze momentan Texmaker (https://www.xm1math.net/texmaker/), habe aber nicht viele getestet.
 %
 %******************************************************************
 \section{Erste Schritte}
 %******************************************************************
 %
-Sobald Sie die Distribution und Editor installiert haben, kÃ¶nnen Sie ihre ersten Dokumente erstellen. 
+Sobald Sie die Distribution und Editor installiert haben, können Sie ihre ersten Dokumente erstellen. 
 %
 \subsection{Struktur der \LaTeX-Datei}
 %
 Die \LaTeX-Dokument-Datei besteht aus zwei Teilen. 
-Der erste Teil ist die sogenannte PrÃ¤ambel, in der die grundlegenden Einstellungen des Dokuments vorgenommen, benÃ¶tigte Pakete geladen und eigene Befehle definiert werden.
-Die PrÃ¤ambel startet mit der Festlegung der Dokumentklasse und endet an der Stelle, an der der DokumentkÃ¶rper beginnt. 
+Der erste Teil ist die sogenannte Präambel, in der die grundlegenden Einstellungen des Dokuments vorgenommen, benötigte Pakete geladen und eigene Befehle definiert werden.
+Die Präambel startet mit der Festlegung der Dokumentklasse und endet an der Stelle, an der der Dokumentkörper beginnt. 
 %
 \subsection{Dokumentklasse}
 %
-Ein Dokument startet immer mit der Angabe, was fÃ¼r eine Art von Dokument erstellt werden soll. 
-Die Auswahl erfolgt Ã¼ber den Befehl \texttt{\textbackslash documentclass[12pt,a4paper]\{scrartcl\}}, der als nÃ¤chstes genauer erklÃ¤rt werden soll.
+Ein Dokument startet immer mit der Angabe, was für eine Art von Dokument erstellt werden soll. 
+Die Auswahl erfolgt über den Befehl \texttt{\textbackslash documentclass[12pt,a4paper]\{scrartcl\}}, der als nächstes genauer erklärt werden soll.
 Befehle werden in \LaTeX\, durch einen Backslash ("\textbackslash") gekennzeichnet.
-Viele Befehle benÃ¶tigen zudem die Ãœbergabe von Optionen, wobei dabei zwischen notwendigen und optionalen Optionen unterschieden wird. 
-Die Ãœbergabe von notwendigen Optionen erfolgt immer in geschweiften Klammern (\texttt{\{scrartl\}}) und die Ãœbergabe von optionalen Optionen in eckigen Klammern (\texttt{[12pt,a4paper]}).
+Viele Befehle benötigen zudem die Übergabe von Optionen, wobei dabei zwischen notwendigen und optionalen Optionen unterschieden wird. 
+Die Übergabe von notwendigen Optionen erfolgt immer in geschweiften Klammern (\texttt{\{scrartl\}}) und die Übergabe von optionalen Optionen in eckigen Klammern (\texttt{[12pt,a4paper]}).
 Im voriegenden Fall wird mit der Option \texttt{scrartcl} festgelegt, dass die KOMA-Skript Variante der article Klasse verwendet werden soll. 
 Die Dokumentklassen aus KOMA-Skript sind 
 %
 \begin{itemize}
-\item \texttt{scrartcl} fÃ¼r kleine Dokumente wie Labor- und Projektberichte,
-\item \texttt{scrreprt} fÃ¼r mittelgroÃŸe Dokumente wie Bachelor und Masterarbeiten,
-\item \texttt{scrbook} fÃ¼r groÃŸe Dokumente wie Dissertationen und BÃ¼cher,
+\item \texttt{scrartcl} für kleine Dokumente wie Labor- und Projektberichte,
+\item \texttt{scrreprt} für mittelgroße Dokumente wie Bachelor und Masterarbeiten,
+\item \texttt{scrbook} für große Dokumente wie Dissertationen und Bücher,
 \item \texttt{scrlttr2} zum Verfassen von Briefen.
 \end{itemize}
 %
-Bei den KOMA-Skript Dokumentklassen handelt es sich um Anpassungen von Dokumentklassen, die speziell auf ein im europÃ¤ischen Raum verwendetes Layout zugeschnitten sind, und deswegen von mir bevorzugt verwendet werden. Weitere Informationen zu KOMA-Skript und inklusive einer umfangreichen Bedienungsanleitung finden sich unter https://komascript.de/ .
+Bei den KOMA-Skript Dokumentklassen handelt es sich um Anpassungen von Dokumentklassen, die speziell auf ein im europäischen Raum verwendetes Layout zugeschnitten sind, und deswegen von mir bevorzugt verwendet werden. Weitere Informationen zu KOMA-Skript und inklusive einer umfangreichen Bedienungsanleitung finden sich unter https://komascript.de/ .
 \\
-AuÃŸer den KOMA-Skript Dokumentklassen existieren zahlreiche weitere Dokumentklassen, wie z.B.
-\texttt{article, report, book, letter, recipe} und viele mehr, die alle fÃ¼r einen bestimmten Zweck entwickelt wurden.
+Außer den KOMA-Skript Dokumentklassen existieren zahlreiche weitere Dokumentklassen, wie z.B.
+\texttt{article, report, book, letter, recipe} und viele mehr, die alle für einen bestimmten Zweck entwickelt wurden.
 \\
 Mit den optionalen Optionen wird das Layout des Dokuments weiter spezifiziert.
-Im vorliegenden Fall wird die SeitengrÃ¶ÃŸe auf A4 eingestellt und eine SchriftgrÃ¶ÃŸe von 12pt gewÃ¤hlt.
+Im vorliegenden Fall wird die Seitengröße auf A4 eingestellt und eine Schriftgröße von 12pt gewählt.
 %
 \subsection{Packete laden}
 %
 Eine gewisse Anzahl von Funktionen ist vo Beginn an vorhanden. 
-Um weitere Funktionen nutzen zu kÃ¶nnen, mÃ¼ssen entsprechende Pakete geladen werden.
-In der \LaTeX-Datei zu diesem Dokumnt wird mit dem Befehl \texttt{\textbackslash usepackage\{geometry\}} das Geomtry-Packet geladen, welches Funktionen zur Einstellung der Seiten-Geometrie bereitstellt. 
-Sobald das Packet geladen ist, kÃ¶nnen z.B. mit dem Befehl \texttt{\textbackslash geometry\{top=20mm, left=25mm, bottom=20mm, right=20mm, includeheadfoot\}} die SeitenrÃ¤nder eingestellt werden.
+Um weitere Funktionen nutzen zu können, müssen entsprechende Pakete geladen werden.
+In der \LaTeX-Datei zu diesem Dokument wird mit dem Befehl \texttt{\textbackslash usepackage\{babel\}} ein Packet geladen, welches es ermöglicht, die verwendete Sprache im Dokument zu ändern. 
+Dies hat Auswirkungen auf die Bezeichnungen von automatisch erstellten Bezeichnungen und Überschriften wie z.B. Inhaltsverzeichnes, Tabellverzeichnis usw. sowie die Silbentrennung. 
+Mit der Option \texttt{ngerman} wird deutsch als Sprache ausgewählt. 
+\\ 
+Um Umlaute und ß verwenden zu können, und damit diese im Editor als ein Zeichen dargestellt werden, müssen die Packete \texttt{inputenc} und \texttt{fontnc} geladen werden.
+Durch das einbinden von \texttt{\textbackslash usepackage{lmodern}} wird die Schriftfamilie latin-modern ausgewählt. Schließlich wird mittels \texttt{\textbackslash usepackage\{geometry\}} das Geometry-Packet geladen, welches Funktionen zur Einstellung der Seiten-Geometrie bereitstellt. 
+ %
+\subsection{Dokumentkörper}
 %
-\subsection{DokumentkÃ¶rper}
-%
-Nachdem alle die Dokumentklasse festgelegt und alle benÃ¶tigten Packete geladen worden, kann endlich Inhalt produziert werden.
-Dies geschieht innerhalb des DokumentkÃ¶rpers, dessen Start und Ende durch die Befehle \texttt{\textbackslash begin\{document\}} und \texttt{\textbackslash end\{document\}} gekenn\-zeichnet werden.
+Nachdem alle die Dokumentklasse festgelegt und alle benötigten Packete geladen worden, kann endlich Inhalt produziert werden.
+Dies geschieht innerhalb des Dokumentkörpers, dessen Start und Ende durch die Befehle \texttt{\textbackslash begin\{document\}} und \texttt{\textbackslash end\{document\}} gekenn\-zeichnet werden.
 \begin{flushright}
 
 \end{flushright}
